@@ -17,8 +17,13 @@ class Dashboard extends StatelessWidget {
             Text("Boring", style: TextStyle(fontSize: 10),),
             IconButton(
                 onPressed: () {},
-                icon: Icon(FontAwesomeIcons.airbnb)
-            )
+                icon: Icon(
+                    FontAwesomeIcons.airbnb,
+                    size: 70,
+                )
+            ),
+            Text("Hello Niggas"),
+            Text("Random Number: ${getRandomNumber()}")
           ],
         ),
       ),
