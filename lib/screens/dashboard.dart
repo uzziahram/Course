@@ -16,11 +16,17 @@ class Dashboard extends StatelessWidget {
             Container(
               width: 250,
               height: 250,
-              color: Colors.blueGrey,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(20),
-              alignment: Alignment.bottomRight,
-              child: Text("Boring", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.blueGrey,
+                // borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey, width: 1),
+                shape: BoxShape.circle,
+                image: DecorationImage(image: AssetImage("images/chatbot.png")),
+
+              ),
             )
           ],
         ),
