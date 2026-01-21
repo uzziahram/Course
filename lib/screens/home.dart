@@ -6,29 +6,28 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: IconButton(onPressed: () {},icon: Icon(Icons.menu_rounded)),
+        title: Text("Dashboard"),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.add,)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded,)),
+        ],
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.black87,
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
+        ),
+      ),
       body: Center(
-        child:
-          OutlinedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              // backgroundColor: Colors.yellow,
-              // overlayColor: Colors.red,
-              padding: EdgeInsets.all(20),
-              fixedSize: Size(300, 80),
-              foregroundColor: Colors.black87,
-              textStyle: TextStyle( fontSize: 20, fontWeight: FontWeight.bold),
-              // side: BorderSide(color: Colors.black87, width: 2),
-              shape: StadiumBorder()
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Let's Begin"),
-                Icon(Icons.shopping_bag_outlined)
-              ],
-            ),
-            // child: Text("Hello"),
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text("hello")
+          ],
+        ),
       ),
     );
   }
