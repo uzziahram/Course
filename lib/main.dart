@@ -1,5 +1,5 @@
-// import 'package:course/screens/dashboard.dart';
-import 'package:course/screens/home.dart';
+import 'package:course/screens/dashboard.dart';
+// import 'package:course/screens/home.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
       // darkTheme: ThemeData.dark(),
       // themeMode: ThemeMode.system,
       title: "Crash Course",
-      home: Home(),
+      home: Dashboard(),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:course/screens/home.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -9,27 +10,29 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Dashboard")),
-      body: Column(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: IconButton(onPressed: () {},icon: Icon(Icons.menu_rounded)),
+        title: Text("Dashboard"),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.add,)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded,)),
+        ],
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.black87,
+        centerTitle: true,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
+        ),
+      ),
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 250,
-              height: 250,
-              padding: EdgeInsets.all(20),
-              margin: EdgeInsets.all(20),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-                // borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.grey, width: 1),
-                shape: BoxShape.circle,
-                image: DecorationImage(image: AssetImage("images/chatbot.png")),
-
-              ),
-            )
+            Home()
           ],
         ),
+      ),
     );
   }
 

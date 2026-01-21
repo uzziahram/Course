@@ -5,29 +5,50 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        leading: IconButton(onPressed: () {},icon: Icon(Icons.menu_rounded)),
-        title: Text("Dashboard"),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.add,)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded,)),
+    return Center(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(child: Image.asset("images/chatbot.png")),
+              Expanded(child: Image.asset("images/chatbot.png")),
+              Expanded(child: Image.asset("images/chatbot.png"))
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.star),
+              Icon(Icons.star),
+              Icon(Icons.star),
+              Icon(Icons.star),
+              Icon(Icons.star)
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Icon(Icons.eighteen_mp_outlined),
+                  Text("One")
+                ],
+              ),
+              Column(
+                children: [
+                  Icon(Icons.eighteen_mp_outlined),
+                  Text("Two")
+                ],
+              ),
+              Column(
+                children: [
+                  Icon(Icons.eighteen_mp_outlined),
+                  Text("Three")
+                ],
+              )
+            ],
+          )
         ],
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.black87,
-        centerTitle: true,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
-        ),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("hello")
-          ],
-        ),
       ),
     );
   }
