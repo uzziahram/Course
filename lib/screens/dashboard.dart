@@ -25,14 +25,7 @@ class Dashboard extends StatelessWidget {
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Home()
-          ],
-        ),
-      ),
+      body: Home()
     );
   }
 

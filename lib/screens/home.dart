@@ -5,51 +5,55 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Expanded(child: Image.asset("images/chatbot.png")),
-              Expanded(child: Image.asset("images/chatbot.png")),
-              Expanded(child: Image.asset("images/chatbot.png"))
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.star),
-              Icon(Icons.star),
-              Icon(Icons.star),
-              Icon(Icons.star),
-              Icon(Icons.star)
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Column(
-                children: [
-                  Icon(Icons.eighteen_mp_outlined),
-                  Text("One")
-                ],
-              ),
-              Column(
-                children: [
-                  Icon(Icons.eighteen_mp_outlined),
-                  Text("Two")
-                ],
-              ),
-              Column(
-                children: [
-                  Icon(Icons.eighteen_mp_outlined),
-                  Text("Three")
-                ],
-              )
-            ],
-          )
-        ],
-      ),
+    return ListView(
+      shrinkWrap: true,
+      children: [
+        ListTile(
+          leading: Icon(Icons.face),
+          title: Text("title 1"),
+          subtitle: Text("Subtitle 1"),
+          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+          onTap: (){
+            debugPrint("Person 1");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.face_2),
+          title: Text("title 2"),
+          subtitle: Text("Subtitle 2"),
+          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+          onTap: (){
+            debugPrint("Person 2");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.face_3),
+          title: Text("title 3"),
+          subtitle: Text("Subtitle 3"),
+          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+          onTap: (){
+            debugPrint("Person 3");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.face_4),
+          title: Text("title 4"),
+          subtitle: Text("Subtitle 4"),
+          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+          onTap: (){
+            debugPrint("Person 4");
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.face_5),
+          title: Text("title 5"),
+          subtitle: Text("Subtitle 5"),
+          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+          onTap: (){
+            debugPrint("Person 5 ");
+          },
+        ),
+      ],
     );
   }
 }
