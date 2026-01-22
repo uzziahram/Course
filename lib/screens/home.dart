@@ -17,7 +17,8 @@ class _HomeState extends State<Home> {
       children: [
         ProductCard(title: "Mouse", subtitle: "A4Tech"),
         ProductCard(title: "Keyboard", subtitle: "8bitdo"),
-        ProductCard(title: "Gaming Controller", subtitle: "8bitdo")
+        ProductCard(title: "Gaming Controller", subtitle: "8bitdo"),
+        ProductCard(title: "Monitor", subtitle: "AOC")
       ],
     );
   }
