@@ -1,59 +1,31 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  List<String> products  = ["Bed", "Sofa" , "Chair"];
+  List<String> productDetails = ["King Sized Bed" , "King Sized Sofa" , "Wooden"];
+  List<int> productPrice = [3000, 2000, 1000];
+
+  @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        ListTile(
-          leading: Icon(Icons.face),
-          title: Text("title 1"),
-          subtitle: Text("Subtitle 1"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-          onTap: (){
-            debugPrint("Person 1");
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.face_2),
-          title: Text("title 2"),
-          subtitle: Text("Subtitle 2"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-          onTap: (){
-            debugPrint("Person 2");
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.face_3),
-          title: Text("title 3"),
-          subtitle: Text("Subtitle 3"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-          onTap: (){
-            debugPrint("Person 3");
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.face_4),
-          title: Text("title 4"),
-          subtitle: Text("Subtitle 4"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-          onTap: (){
-            debugPrint("Person 4");
-          },
-        ),
-        ListTile(
-          leading: Icon(Icons.face_5),
-          title: Text("title 5"),
-          subtitle: Text("Subtitle 5"),
-          trailing: IconButton(onPressed: (){}, icon: Icon(Icons.add)),
-          onTap: (){
-            debugPrint("Person 5 ");
-          },
-        ),
-      ],
+    return ListView.builder(
+      itemCount: products.length,
+      itemBuilder: (context, index){
+        return ListTile(
+          leading: CircleAvatar(child: Text(products[index][0])),
+          title: Text(products[index]),
+          subtitle: Text(productDetails[index]),
+          trailing: Text(productPrice[index].toString()),
+        );
+      },
     );
   }
 }
+
