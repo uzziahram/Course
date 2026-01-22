@@ -25,7 +25,7 @@ class _HomeState extends State<Home> {
         color: Colors.black87,
         shape: CircularNotchedRectangle(),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           mainAxisSize: MainAxisSize.max,
 
           children: [
