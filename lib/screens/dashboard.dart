@@ -12,7 +12,6 @@ class Dashboard extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: IconButton(onPressed: () {},icon: Icon(Icons.menu_rounded)),
         title: Text("Dashboard"),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.add,)),
@@ -23,6 +22,24 @@ class Dashboard extends StatelessWidget {
         centerTitle: true,
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
+        ),
+      ),
+      drawer: Drawer(
+        elevation: 140.0,
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Container(
+                color: Colors.blue,
+                child: Center(
+                  child: Text("Navigation Drawer"),
+                ),
+              )
+            ),
+            ListTile(leading: Icon(Icons.home), title: Text("Home"), onTap: (){},),
+            ListTile(leading: Icon(Icons.shopping_cart), title: Text("Shopping"), onTap: (){},),
+            ListTile(leading: Icon(Icons.favorite), title: Text("Favourites"), onTap: (){},),
+          ],
         ),
       ),
       body: Home()
