@@ -13,35 +13,35 @@ class Dashboard extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text("Dashboard"),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.add,)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded,)),
-        ],
+        // actions: [
+        //   IconButton(onPressed: () {}, icon: Icon(Icons.add,)),
+        //   IconButton(onPressed: () {}, icon: Icon(Icons.search_rounded,)),
+        // ],
         foregroundColor: Colors.white,
         backgroundColor: Colors.black87,
         centerTitle: true,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
-        ),
+        // shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
+        // ),
       ),
-      drawer: Drawer(
-        elevation: 140.0,
-        child: ListView(
-          children: [
-            DrawerHeader(
-              child: Container(
-                color: Colors.blue,
-                child: Center(
-                  child: Text("Navigation Drawer"),
-                ),
-              )
-            ),
-            ListTile(leading: Icon(Icons.home), title: Text("Home"), onTap: (){},),
-            ListTile(leading: Icon(Icons.shopping_cart), title: Text("Shopping"), onTap: (){},),
-            ListTile(leading: Icon(Icons.favorite), title: Text("Favourites"), onTap: (){},),
-          ],
-        ),
-      ),
+      // drawer: Drawer(
+      //   elevation: 140.0,
+      //   child: ListView(
+      //     children: [
+      //       DrawerHeader(
+      //         child: Container(
+      //           color: Colors.blue,
+      //           child: Center(
+      //             child: Text("Navigation Drawer"),
+      //           ),
+      //         )
+      //       ),
+      //       ListTile(leading: Icon(Icons.home), title: Text("Home"), onTap: (){},),
+      //       ListTile(leading: Icon(Icons.shopping_cart), title: Text("Shopping"), onTap: (){},),
+      //       ListTile(leading: Icon(Icons.favorite), title: Text("Favourites"), onTap: (){},),
+      //     ],
+      //   ),
+      // ),
       body: Home()
     );
   }
@@ -56,7 +56,6 @@ class Basics extends StatefulWidget {
   @override
   State<Basics> createState() => _BasicsState();
 }
-
 class _BasicsState extends State<Basics> {
   @override
   Widget build(BuildContext context) {
