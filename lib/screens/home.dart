@@ -34,8 +34,8 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.home, color: Colors.white,),
-                  Text("Home", style: TextStyle(color: Colors.white),)
+                  const Icon(Icons.home, color: Colors.white,),
+                  const Text("Home", style: TextStyle(color: Colors.white),)
                 ],
               ),
             ),
@@ -44,8 +44,8 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.shopping_cart, color: Colors.white,),
-                  Text("Shop", style: TextStyle(color: Colors.white))
+                  const Icon(Icons.shopping_cart, color: Colors.white,),
+                  const Text("Shop", style: TextStyle(color: Colors.white))
                 ],
               ),
             ),
@@ -54,8 +54,8 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.favorite, color: Colors.white,),
-                  Text("Fav", style: TextStyle(color: Colors.white))
+                  const Icon(Icons.favorite, color: Colors.white,),
+                  const Text("Fav", style: TextStyle(color: Colors.white))
                 ],
               ),
             ),
@@ -64,8 +64,8 @@ class _HomeState extends State<Home> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.settings, color: Colors.white,),
-                  Text("Settings", style: TextStyle(color: Colors.white))
+                  const Icon(Icons.settings, color: Colors.white,),
+                  const Text("Settings", style: TextStyle(color: Colors.white))
                 ],
               ),
             ),
