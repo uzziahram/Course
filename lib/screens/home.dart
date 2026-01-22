@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:course/widgets/product_card.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,35 +12,15 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Container(
-            width: 300,
-            height: 300,
-            color: Colors.blue,
-          ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              width: 200,
-              height: 200,
-              color: Colors.green,
-            ),
-          ),
-          Positioned(
-            top: 50,
-            child: Container(
-              width: 100,
-              height: 100,
-              color: Colors.red,
-            ),
-          ),
-
-        ],
-      ),
+    return ListView(
+      padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+      children: [
+        ProductCard(title: "Mouse", subtitle: "A4Tech"),
+        ProductCard(title: "Keyboard", subtitle: "8bitdo"),
+        ProductCard(title: "Gaming Controller", subtitle: "8bitdo")
+      ],
     );
   }
 }
+
 
