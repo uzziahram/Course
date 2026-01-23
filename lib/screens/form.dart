@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:course/models/Product.dart';
+import 'package:course/widgets/custom_checkbox.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key, required this.productList });
@@ -15,7 +16,7 @@ class _MyFormState extends State<MyForm> {
   final _productNameController = TextEditingController();
   final _productDescriptionController = TextEditingController();
 
-  bool? _listTileCheckBox = false;
+  bool _listTileCheckBox = false;
 
   @override
   void dispose() {
@@ -54,15 +55,26 @@ class _MyFormState extends State<MyForm> {
               ),
             ),
             const SizedBox(height: 10),
-            CheckboxListTile(
-              title: Text("Pin"),
-              controlAffinity: ListTileControlAffinity.leading,
+            // CheckboxListTile(
+            //   title: Text("Pin"),
+            //   controlAffinity: ListTileControlAffinity.leading,
+            //   value: _listTileCheckBox,
+            //   onChanged: (value){
+            //     setState(() {
+            //       _listTileCheckBox = value;
+            //     });
+            //   }
+            // ),
+            CustomCheckbox(
+              title: "Pin Product",
               value: _listTileCheckBox,
-              onChanged: (value){
+              onChanged: (val){
                 setState(() {
-                  _listTileCheckBox = value;
+                  _listTileCheckBox = !_listTileCheckBox;
                 });
-              }
+              },
+              checkedIcon: Icons.push_pin,
+              uncheckedIcon: Icons.push_pin_outlined,
             ),
             const SizedBox(height: 10),
             formSubmitBtn(context)
@@ -80,7 +92,12 @@ class _MyFormState extends State<MyForm> {
     }
 
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(minimumSize: const Size(200, 50)),
+        style: OutlinedButton.styleFrom(
+          minimumSize: const Size(200, 50),
+          shape:  RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5), // border radius here
+          ),
+        ),
         onPressed: (){
 
           widget.productList.add(createProduct());

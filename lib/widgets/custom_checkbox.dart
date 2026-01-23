@@ -20,20 +20,22 @@ class CustomCheckbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.all(5),
-      child: ListTile(
-        title: Text(title),
-        trailing: IconButton(
-          icon: Icon(
-            value ? checkedIcon : uncheckedIcon,
-          ),
-          onPressed: () {
+      padding: const EdgeInsets.all(5),
+      child: Material(
+        color: value ? Colors.yellow : Colors.grey[50], // background toggle
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12), // ripple respects radius
+          onTap: () {
             onChanged(!value);
           },
+          child: ListTile(
+            title: Text(title),
+            trailing: Icon(
+              value ? checkedIcon : uncheckedIcon,
+            ),
+          ),
         ),
-        onTap: () {
-          onChanged(!value);
-        },
       ),
     );
   }

@@ -38,7 +38,13 @@ class _DashboardState extends State<Dashboard> {
 
   OutlinedButton routeButtons(BuildContext context, Widget route, String title ) {
     return OutlinedButton(
-      style: OutlinedButton.styleFrom(minimumSize: const Size(200, 50)),
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size(200, 50),
+        shape:  RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12), // border radius here
+        ),
+      ),
+
       onPressed: (){
         Navigator.push(
             context,
