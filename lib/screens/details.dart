@@ -1,10 +1,11 @@
+import 'package:course/models/Product.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
-  const Details({super.key, required this.productNameList});
+  const Details({super.key, required this.productList});
 
  // final String productName;
- final List<String> productNameList;
+ final List<Product> productList;
 
   @override
   State<Details> createState() => _DetailsState();
@@ -20,10 +21,11 @@ class _DetailsState extends State<Details> {
       ),
       body: Material(
         child: ListView.builder(
-            itemCount: widget.productNameList.length,
+            itemCount: widget.productList.length,
             itemBuilder: (context, index){
               return ListTile(
-                title: Text(widget.productNameList[index]),
+                title: Text(widget.productList[index].productName),
+                subtitle: Text(widget.productList[index].productDescription),
                 leading: Icon(Icons.shopify),
               );
             },
