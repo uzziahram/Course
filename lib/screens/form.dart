@@ -1,8 +1,9 @@
-import 'package:course/screens/details.dart';
 import 'package:flutter/material.dart';
 
 class MyForm extends StatefulWidget {
-  const MyForm({super.key});
+  const MyForm({super.key, required this.productNameList });
+
+  final List<String> productNameList;
 
   @override
   State<MyForm> createState() => _MyFormState();
@@ -51,13 +52,8 @@ class _MyFormState extends State<MyForm> {
     return OutlinedButton(
         style: OutlinedButton.styleFrom(minimumSize: const Size(200, 50)),
         onPressed: (){
-          Navigator.push(
-              context,
-              MaterialPageRoute(builder:(context){
-                return Details(productName: _productNameController.text,);
-              })
-          );
-          // Navigator.pop(context);
+          widget.productNameList.add(_productNameController.text);
+          Navigator.pop(context);
         },
         child: Text("Submit Form", style: TextStyle(fontWeight: FontWeight.bold)),
       );

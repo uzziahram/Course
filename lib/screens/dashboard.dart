@@ -11,6 +11,9 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+
+  List<String> productNames = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +27,8 @@ class _DashboardState extends State<Dashboard> {
           spacing: 10,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            routeButtons(context, MyForm(), "Form"),
-            // routeButtons(context, Details(), "Details"),
+            routeButtons(context, MyForm(productNameList: productNames,), "Form"),
+            routeButtons(context, Details(productNameList: productNames,), "Details"),
           ],
         ),
       ),
