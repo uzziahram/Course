@@ -22,7 +22,7 @@ class CustomCheckbox extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Material(
-        color: value ? Colors.yellow : Colors.grey[50], // background toggle
+        color: value ? Colors.yellow : Colors.grey[0], // background toggle
         borderRadius: BorderRadius.circular(12),
         child: InkWell(
           borderRadius: BorderRadius.circular(12), // ripple respects radius

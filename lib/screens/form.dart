@@ -55,16 +55,6 @@ class _MyFormState extends State<MyForm> {
               ),
             ),
             const SizedBox(height: 10),
-            // CheckboxListTile(
-            //   title: Text("Pin"),
-            //   controlAffinity: ListTileControlAffinity.leading,
-            //   value: _listTileCheckBox,
-            //   onChanged: (value){
-            //     setState(() {
-            //       _listTileCheckBox = value;
-            //     });
-            //   }
-            // ),
             CustomCheckbox(
               title: "Pin Product",
               value: _listTileCheckBox,
@@ -100,10 +90,40 @@ class _MyFormState extends State<MyForm> {
         ),
         onPressed: (){
 
-          widget.productList.add(createProduct());
+          Product product = createProduct();
+          if(product.productDescription == "" || product.productName == "" ){
+            showMissingFieldsDialog(context);
+            return;
+          }
+          
+          
+          widget.productList.add(product);
           Navigator.pop(context);
         },
         child: Text("Submit Form", style: TextStyle(fontWeight: FontWeight.bold)),
       );
+  }
+
+  void showMissingFieldsDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          title: const Text("Incomplete Input"),
+          content: const Text("Please provide all input fields."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // close the dialog
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
   }
 }
