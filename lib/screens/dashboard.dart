@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:course/screens/form.dart';
+import 'package:course/screens/details.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -13,47 +15,38 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dashboard"),
-        backgroundColor: Colors.black87,
-        foregroundColor: Colors.white,
+        title: const  Text("Dashboard"),
+        centerTitle: true,
 
       ),
-      body: CustomWidget(),
+      body: Center(
+        child: Column(
+          spacing: 10,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            routeButtons(context, MyForm(), "Form"),
+            // routeButtons(context, Details(), "Details"),
+          ],
+        ),
+      ),
+    );
+  }
+
+  OutlinedButton routeButtons(BuildContext context, Widget route, String title ) {
+    return OutlinedButton(
+      style: OutlinedButton.styleFrom(minimumSize: const Size(200, 50)),
+      onPressed: (){
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder:(context){
+              return route;
+            })
+        );
+      },
+      child: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
     );
   }
 }
-
-class CustomWidget extends StatefulWidget {
-  const CustomWidget({super.key});
-
-  @override
-  State<CustomWidget> createState() => _CustomWidgetState();
-}
-
-class _CustomWidgetState extends State<CustomWidget> {
-
-  bool liked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        ListTile(
-          title: Text("Hello again"),
-          trailing: IconButton(
-              onPressed: (){
-                setState(() {
-                  liked = !liked;
-                });
-              },
-              icon: liked? (Icon(Icons.star )) : (Icon(Icons.star_border))
-          ),
-        )
-      ],
-    );
-  }
-}
-
 
 
 
