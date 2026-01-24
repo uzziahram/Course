@@ -3,9 +3,9 @@ import 'package:course/models/Product.dart';
 import 'package:course/widgets/custom_checkbox.dart';
 
 class MyForm extends StatefulWidget {
-  const MyForm({super.key, required this.productList });
+  const MyForm({super.key,required this.onProductAdded });
 
-  final List<Product> productList;
+  final void Function(Product product) onProductAdded;
 
   @override
   State<MyForm> createState() => _MyFormState();
@@ -94,7 +94,7 @@ class _MyFormState extends State<MyForm> {
           return;
         }
 
-        widget.productList.add(product);
+        widget.onProductAdded(product);
         successfulSubmissionDialog(context);
       },
       child: Text("Submit Form", style: TextStyle(fontWeight: FontWeight.bold)),
