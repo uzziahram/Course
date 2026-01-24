@@ -28,80 +28,77 @@ class _MyFormState extends State<MyForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Form"),
-        centerTitle: true,
-      ),
-      body: Container(
-        padding: EdgeInsets.all(20),
-        
-        child: ListView(
-          children: [
-            TextFormField(
-              controller: _productNameController,
-              decoration: InputDecoration(
-                labelText: 'Product Name',
-                prefixIcon: Icon(Icons.abc_rounded),
-                border: OutlineInputBorder()
-              ),
-            ),
-            const SizedBox(height: 20),
-            TextFormField(
-              controller: _productDescriptionController,
-              decoration: InputDecoration(
-                  labelText: 'Product Description',
-                  prefixIcon: Icon(Icons.description_rounded),
-                  border: OutlineInputBorder()
-              ),
-            ),
-            const SizedBox(height: 10),
-            CustomCheckbox(
-              title: "Pin Product",
-              value: _listTileCheckBox,
-              onChanged: (val){
-                setState(() {
-                  _listTileCheckBox = !_listTileCheckBox;
-                });
-              },
-              checkedIcon: Icons.push_pin,
-              uncheckedIcon: Icons.push_pin_outlined,
-            ),
-            const SizedBox(height: 10),
-            formSubmitBtn(context)
-          ],
+        appBar: AppBar(
+          title: Text("Form"),
+          centerTitle: true,
         ),
-      )
+        body: Container(
+          padding: EdgeInsets.all(20),
+
+          child: ListView(
+            children: [
+              TextFormField(
+                controller: _productNameController,
+                decoration: InputDecoration(
+                    labelText: 'Product Name',
+                    prefixIcon: Icon(Icons.abc_rounded),
+                    border: OutlineInputBorder()
+                ),
+              ),
+              const SizedBox(height: 20),
+              TextFormField(
+                controller: _productDescriptionController,
+                decoration: InputDecoration(
+                    labelText: 'Product Description',
+                    prefixIcon: Icon(Icons.description_rounded),
+                    border: OutlineInputBorder()
+                ),
+              ),
+              const SizedBox(height: 10),
+              CustomCheckbox(
+                title: "Pin Product",
+                value: _listTileCheckBox,
+                onChanged: (val) {
+                  setState(() {
+                    _listTileCheckBox = val;
+                  });
+                },
+                checkedIcon: Icons.push_pin,
+                uncheckedIcon: Icons.push_pin_outlined,
+              ),
+              const SizedBox(height: 10),
+              formSubmitBtn(context)
+            ],
+          ),
+        )
     );
   }
 
   OutlinedButton formSubmitBtn(BuildContext context) {
-
-    Product createProduct(){
-      Product newProduct = Product(productName: _productNameController.text, productDescription: _productDescriptionController.text);
-      return newProduct;
+    Product createProduct() {
+      return Product(productName: _productNameController.text, productDescription: _productDescriptionController.text);
     }
 
     return OutlinedButton(
-        style: OutlinedButton.styleFrom(
-          minimumSize: const Size(200, 50),
-          shape:  RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5), // border radius here
-          ),
+      style: OutlinedButton.styleFrom(
+        minimumSize: const Size(200, 50),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5), // border radius here
         ),
-        onPressed: (){
+      ),
 
-          Product product = createProduct();
-          if(product.productDescription == "" || product.productName == "" ){
-            showMissingFieldsDialog(context);
-            return;
-          }
-          
-          
-          widget.productList.add(product);
-          Navigator.pop(context);
-        },
-        child: Text("Submit Form", style: TextStyle(fontWeight: FontWeight.bold)),
-      );
+      onPressed: () {
+        Product product = createProduct();
+        if (product.productDescription.isEmpty || product.productName.isEmpty) {
+          showMissingFieldsDialog(context);
+          return;
+        }
+
+        widget.productList.add(product);
+        successfulSubmissionDialog(context);
+      },
+      child: Text("Submit Form", style: TextStyle(fontWeight: FontWeight.bold)),
+    );
   }
 
   void showMissingFieldsDialog(BuildContext context) {
@@ -114,6 +111,29 @@ class _MyFormState extends State<MyForm> {
           ),
           title: const Text("Incomplete Input"),
           content: const Text("Please provide all input fields."),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop(); // close the dialog
+              },
+              child: const Text("OK"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+
+  void successfulSubmissionDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+          title: const Text("Product Added Successfully"),
           actions: [
             TextButton(
               onPressed: () {
