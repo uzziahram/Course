@@ -28,15 +28,41 @@ class _DashboardState extends State<Dashboard> {
           spacing: 10,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            routeButtons(context, MyForm(productList: productList,), "Form"),
-            routeButtons(context, Details(productList: productList,), "Details"),
+            routeButtons(
+                context,
+                "Form",
+                () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context){
+                      return MyForm(onProductAdded: (product){
+                        setState(() {
+                         productList.add(product);
+                        });
+                      });
+                    }));
+                },
+            ),
+
+            routeButtons(
+              context,
+              "Details",
+              () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context){
+                    return Details(productList: productList);
+                  })
+                );
+              }
+            ),
           ],
         ),
       ),
     );
   }
 
-  OutlinedButton routeButtons(BuildContext context, Widget route, String title ) {
+  OutlinedButton routeButtons(BuildContext context, String title, VoidCallback onPressed ) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
         minimumSize: const Size(200, 50),
@@ -44,15 +70,7 @@ class _DashboardState extends State<Dashboard> {
           borderRadius: BorderRadius.circular(12), // border radius here
         ),
       ),
-
-      onPressed: (){
-        Navigator.push(
-            context,
-            MaterialPageRoute(builder:(context){
-              return route;
-            })
-        );
-      },
+      onPressed: onPressed,
       child: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
     );
   }
