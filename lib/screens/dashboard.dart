@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:course/screens/form.dart';
 import 'package:course/screens/details.dart';
-import 'package:course/models/Product.dart';
+import 'package:course/models/product.dart';
 
 
 class Dashboard extends StatefulWidget {
@@ -14,6 +14,12 @@ class Dashboard extends StatefulWidget {
 class _DashboardState extends State<Dashboard> {
 
   List<Product> productList = [];
+
+  void addProduct(Product product){
+    setState(() {
+      productList.add(product);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +34,10 @@ class _DashboardState extends State<Dashboard> {
           spacing: 10,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            routeButtons(context, MyForm(productList: productList,), "Form"),
-            routeButtons(context, Details(productList: productList,), "Details"),
+            routeButtons(context, MyForm(onAddProduct: addProduct ,), "Add a Product"),
+            // routeButtons(context, Details(productList: productList,), "Details"),
+            const SizedBox(height: 20,),
+            Expanded( child: Details(productList: productList) )
           ],
         ),
       ),
